@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: UI
+  m_EditorClassIdentifier: 
+  m_GroupName: UI
+  m_Data:
+    m_SerializedData: []
+  m_GUID: f6f8e6efe82527c4e9f8f9ba67b272b7
+  m_SerializeEntries:
+  - m_GUID: 6e2c5a6f3a8b6c04a8382e5b54acf739
+    m_Address: UI.MainMenu
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 2104823306389765083, guid: 6e2c5a6f3a8b6c04a8382e5b54acf739, type: 3}
+    m_TargetAsset: {fileID: 2104823306389765083, guid: 6e2c5a6f3a8b6c04a8382e5b54acf739, type: 3}
+  - m_GUID: 48810a2f785bd2a41949cf269fdc8d30
+    m_Address: UI.CustomModeMenu
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 2104823306389765083, guid: 48810a2f785bd2a41949cf269fdc8d30, type: 3}
+    m_TargetAsset: {fileID: 2104823306389765083, guid: 48810a2f785bd2a41949cf269fdc8d30, type: 3}
+  - m_GUID: a5f8afc2f86321d449048e73927de849
+    m_Address: UI.Element.ContainerOption
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 1933766143548924611, guid: a5f8afc2f86321d449048e73927de849, type: 3}
+    m_TargetAsset: {fileID: 1933766143548924611, guid: a5f8afc2f86321d449048e73927de849, type: 3}
+  - m_GUID: 36a2e84f1db6ac94cbd37b1694b4cbb0
+    m_Address: UI.Element.ColorToggle
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 6344425123638103381, guid: 36a2e84f1db6ac94cbd37b1694b4cbb0, type: 3}
+    m_TargetAsset: {fileID: 6344425123638103381, guid: 36a2e84f1db6ac94cbd37b1694b4cbb0, type: 3}
+  - m_GUID: 526e328eba070874ab5e79263802f3cc
+    m_Address: UI.HUD
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 4129491602383639910, guid: 526e328eba070874ab5e79263802f3cc, type: 3}
+    m_TargetAsset: {fileID: 4129491602383639910, guid: 526e328eba070874ab5e79263802f3cc, type: 3}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 2b137fe007fcec1459b7f579d302f740, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 6e3a069fa78e6d54e80b396059e7cb46, type: 2}
+    - {fileID: 11400000, guid: 4f6a2d31909293748bd64275326ccb69, type: 2}

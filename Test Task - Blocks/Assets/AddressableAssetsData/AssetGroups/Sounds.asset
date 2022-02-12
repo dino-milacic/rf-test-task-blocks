@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Sounds
+  m_EditorClassIdentifier: 
+  m_GroupName: Sounds
+  m_Data:
+    m_SerializedData: []
+  m_GUID: be4c58e123fe94e488c985ce80a2d842
+  m_SerializeEntries:
+  - m_GUID: c79db1be49ff0cb4c90d3b75953c1cd3
+    m_Address: Sounds.BeepPing
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 8300000, guid: c79db1be49ff0cb4c90d3b75953c1cd3, type: 3}
+    m_TargetAsset: {fileID: 8300000, guid: c79db1be49ff0cb4c90d3b75953c1cd3, type: 3}
+  - m_GUID: 17e43c34ee3054140911a8fe77cba889
+    m_Address: Sounds.RobotBlip.01
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 8300000, guid: 17e43c34ee3054140911a8fe77cba889, type: 3}
+    m_TargetAsset: {fileID: 8300000, guid: 17e43c34ee3054140911a8fe77cba889, type: 3}
+  - m_GUID: be7162804087282498968b69de5257b5
+    m_Address: Sounds.RobotBlip.02
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 8300000, guid: be7162804087282498968b69de5257b5, type: 3}
+    m_TargetAsset: {fileID: 8300000, guid: be7162804087282498968b69de5257b5, type: 3}
+  - m_GUID: 45a999ec310bb2243852f7a13f373f46
+    m_Address: Sounds.ScannerBeep
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 8300000, guid: 45a999ec310bb2243852f7a13f373f46, type: 3}
+    m_TargetAsset: {fileID: 8300000, guid: 45a999ec310bb2243852f7a13f373f46, type: 3}
+  - m_GUID: c3d172c2715f627469698c71162bbfa3
+    m_Address: Sounds.TinyButton
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 8300000, guid: c3d172c2715f627469698c71162bbfa3, type: 3}
+    m_TargetAsset: {fileID: 8300000, guid: c3d172c2715f627469698c71162bbfa3, type: 3}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 2b137fe007fcec1459b7f579d302f740, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 348ddb62ca4cbb447b863eda3d61cd91, type: 2}
+    - {fileID: 11400000, guid: ba48e46b2b7abba43b5e9b9bad64fb53, type: 2}
