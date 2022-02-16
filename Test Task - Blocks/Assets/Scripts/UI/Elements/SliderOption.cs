@@ -31,7 +31,6 @@ namespace RFTestTaskBlocks.UI
             _slider.maxValue = _maxValue;
             _slider.minValue = _minValue;
             _slider.value = _defaultValue;
-            _slider.onValueChanged.RemoveListener(HandleValueChanged);
             _slider.onValueChanged.AddListener(HandleValueChanged);
             SetLabel(_defaultValue);
         }

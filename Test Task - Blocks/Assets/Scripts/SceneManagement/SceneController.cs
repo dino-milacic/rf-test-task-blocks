@@ -23,8 +23,11 @@ namespace RFTestTaskBlocks
         private List<BlockController> _spawnedBlocks = new List<BlockController>();
 
         private Vector2 Offset => new Vector2((_config.SceneBounds.size.x - 1f) / 2f - 0.5f, _config.SceneBounds.size.y / 2f - 1f);
-        
-        public bool IsValid => _config is {IsValid: true};
+
+        public Bounds SceneSize => new Bounds(_config.SceneBounds.center + new Vector3(0f, 1f), _config.SceneBounds.size - new Vector3(2f, 1f));
+
+        public int NumberOfRobots => _config.NumberOfRobots;
+        public int NumberOfBlocks => _config.NumberOfBlocks;
 
         private void Awake()
         {
@@ -96,13 +99,6 @@ namespace RFTestTaskBlocks
             return _spawnedContainers.FirstOrDefault(x => x.Color == color);
         }
 
-        public Bounds SceneSize => new Bounds(_config.SceneBounds.center + new Vector3(0f, 1f), _config.SceneBounds.size - new Vector3(2f, 1f));
-
-        public int NumberOfRobots => _config.NumberOfRobots;
-        public int NumberOfBlocks => _config.NumberOfBlocks;
-        public List<BlockColor> AllowedColors => new List<BlockColor>(_config.AllowedColors);
-        public Dictionary<BlockColor, ContainerConfiguration> ContainerData => new Dictionary<BlockColor, ContainerConfiguration>(_config.ContainerData);
-
         public Vector3 GetPositionInScene(Vector2 gridPosition)
         {
             Vector2 posInScene = gridPosition - Offset;
@@ -118,11 +114,6 @@ namespace RFTestTaskBlocks
         public Vector2 GetSceneGridPosition(float percentage)
         {
             return new Vector2(SceneSize.size.x * percentage, 0f);
-        }
-
-        public Vector3 GetGroundedPositionInScene(int posX)
-        {
-            return GetPositionInScene(new Vector2(posX, 0f));
         }
 
         public void SpawnRobot(int index)
@@ -168,7 +159,7 @@ namespace RFTestTaskBlocks
         {
             BlockConfiguration config = new BlockConfiguration
             {
-                AllowedColors = AllowedColors,
+                AllowedColors = _config.AllowedColors,
                 AllowedBounds = SceneSize
             };
             SpawnBlock(config);
@@ -222,49 +213,4 @@ namespace RFTestTaskBlocks
             }
         }
     }
-
-    public interface ISceneManager : IGameService
-    {
-        bool IsValid { get; }
-        void Configure(SceneConfiguration config);
-        void Configure(float sceneSize, int robots, int blocks, List<BlockColor> allowedColors);
-        int NumberOfRobots { get; }
-        int NumberOfBlocks { get; }
-        List<BlockColor> AllowedColors { get; }
-        Dictionary<BlockColor, ContainerConfiguration> ContainerData { get; }
-        ContainerController GetContainerForColor(BlockColor color);
-        Bounds SceneSize { get; }
-        Vector3 GetPositionInScene(Vector2 gridPosition);
-        Vector3 GetGroundedPositionInScene(float percentage);
-        Vector2 GetSceneGridPosition(float percentage);
-        void SpawnRobot(float position, RobotController.RobotDirection direction, float speedMultiplier = 1f);
-        void SpawnRobot(int index);
-        void SpawnContainer(float position, BlockColor color, ContainerController.ContainerOrientation orientation);
-        void SpawnBlock();
-        void Reset();
-    }
-
-    public enum SceneHierarchyDivider
-    {
-        Static, Robots, Blocks
-    }
-
-    public class SceneConfiguration
-    {
-        public Bounds SceneBounds { get; private set; } = new Bounds(new Vector3(0, 0), new Vector3(18, 10));
-        public int NumberOfRobots = 1;
-        public int NumberOfBlocks = 25;
-        public List<BlockColor> AllowedColors= new List<BlockColor>();
-        public Dictionary<BlockColor, ContainerConfiguration> ContainerData = new Dictionary<BlockColor, ContainerConfiguration>();
-
-        public void CalculateSize(float horizontalSize)
-        {
-            float verticalSize = horizontalSize * Screen.height / Screen.width;
-            SceneBounds = new Bounds(Vector3.zero, new Vector3(horizontalSize, verticalSize));
-        }
-
-        public bool IsValid => NumberOfBlocks >= 1 && NumberOfRobots >= 1 && SceneBounds.size.x > 10 && AllowedColors.Count >= 1 
-                               && AllowedColors.All(c => ContainerData.ContainsKey(c));
-    }
-    
 }

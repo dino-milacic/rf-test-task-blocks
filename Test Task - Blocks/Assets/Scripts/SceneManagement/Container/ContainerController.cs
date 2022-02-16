@@ -6,9 +6,6 @@ namespace RFTestTaskBlocks
     public class ContainerController : MonoBehaviour
     {
         [SerializeField] private SpriteRenderer _spriteRenderer;
-        private Transform _transform;
-
-        public Transform Transform => _transform;
 
         [SerializeField] private ContainerOrientation _receptacleSide = ContainerOrientation.Right;
         [SerializeField] private BlockColor _color;
@@ -18,7 +15,10 @@ namespace RFTestTaskBlocks
         [SerializeField] private SpriteRenderer _processingCompleteIndicator;
         [SerializeField] private SpriteRenderer _processingInProgressIndicator;
 
-        [SerializeField] private Queue<BlockController> _processingQueue;
+        private Transform _transform;
+        public Transform Transform => _transform;
+        
+        private Queue<BlockController> _processingQueue;
         private bool _isProcessingBlock;
         
         public Transform DropOffPoint => _dropOffPoint;
@@ -122,7 +122,7 @@ namespace RFTestTaskBlocks
             block.StartProcessing(_recyclePoint, BlockProcessed);
         }
 
-        public void BlockProcessed(BlockController block)
+        private void BlockProcessed(BlockController block)
         {
             block.Reinitialize();
             Services.Get<ISoundManager>().PlaySFX(SoundAddress.ScannerBeep);
@@ -130,11 +130,11 @@ namespace RFTestTaskBlocks
             SetIndicatorAlpha(_processingCompleteIndicator, 1f);
         }
 
-        private void SetIndicatorAlpha(SpriteRenderer renderer, float newAlpha)
+        private void SetIndicatorAlpha(SpriteRenderer indicatorRenderer, float newAlpha)
         {
-            Color newColor = renderer.color;
+            Color newColor = indicatorRenderer.color;
             newColor.a = newAlpha;
-            renderer.color = newColor;
+            indicatorRenderer.color = newColor;
         }
     }
 }

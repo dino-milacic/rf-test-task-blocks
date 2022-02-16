@@ -47,7 +47,6 @@ namespace RFTestTaskBlocks
         {
             _gameController = new GameController();
             _assetManager = new AssetManager();
-
         }
 
         private void Start()

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -8,21 +7,21 @@ namespace RFTestTaskBlocks
     public class BlockController : MonoBehaviour
     {
         [SerializeField] private SpriteRenderer _spriteRenderer;
-        private Transform _transform;
         [SerializeField] private BoxCollider2D _collider;
         [SerializeField] private Rigidbody2D _rigidbody;
 
+        private const float PROCESSING_DURATION = 5f;
+        
+        private BlockConfiguration _config;
+        private Transform _transform;
         private BlockColor _color;
         private bool _isProcessing;
         private Transform _destination;
         private Action<BlockController> _onProcessingComplete;
         private float _processingTime;
         private Vector3 _startPosition;
-
+        
         private bool _isTargeted;
-
-        private const float PROCESSING_DURATION = 5f;
-
         public bool IsTargeted
         {
             get => _isTargeted;
@@ -32,7 +31,7 @@ namespace RFTestTaskBlocks
         public BlockColor Color
         {
             get => _color;
-            set
+            private set
             {
                 _color = value;
                 _spriteRenderer.color = value.BlockColorToColor();
@@ -48,8 +47,6 @@ namespace RFTestTaskBlocks
             if (_collider == null) _collider = GetComponent<BoxCollider2D>();
             if (_rigidbody == null) _rigidbody = GetComponent<Rigidbody2D>();
         }
-
-        private BlockConfiguration _config;
         
         public void Initialize(BlockConfiguration config)
         {

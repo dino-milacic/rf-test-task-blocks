@@ -60,10 +60,4 @@ namespace RFTestTaskBlocks
         private string GetFullSoundAddress(string address) => string.Format(SoundAddress.AddressBase, address);
 
     }
-
-    public interface ISoundManager : IGameService
-    {
-        void PreloadSFXList(params string[] addresses);
-        void PlaySFX(string soundAddress);
-    }
 }

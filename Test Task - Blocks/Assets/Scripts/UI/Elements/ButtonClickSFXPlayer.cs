@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 namespace RFTestTaskBlocks.UI
 {
+    [RequireComponent(typeof(Button))]
     public class ButtonClickSFXPlayer : MonoBehaviour
     {
         private Button _button;
@@ -13,7 +14,6 @@ namespace RFTestTaskBlocks.UI
         private void Awake()
         {
             _button = GetComponent<Button>();
-            _button.onClick.RemoveListener(OnButtonClicked);
             _button.onClick.AddListener(OnButtonClicked);
             _soundManager = Services.Get<ISoundManager>();
         }

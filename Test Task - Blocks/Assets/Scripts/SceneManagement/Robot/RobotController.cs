@@ -7,7 +7,6 @@ namespace RFTestTaskBlocks
 {
     public partial class RobotController : MonoBehaviour
     {
-        // private SpriteRenderer _spriteRenderer;
         private Animator _animator;
         private Transform _transform;
         [SerializeField] private Transform _pickUpAnchor;
@@ -17,21 +16,19 @@ namespace RFTestTaskBlocks
         private RobotState _state;
         private BlockController _targetBlock;
         private ContainerController _targetContainer;
-
-        // [SerializeField] private ContainerController[] _containers;
-
+        
         [SerializeField] private float _maxVelocity = 3f;
         [SerializeField] private float _baseAcceleration = 1f;
         [SerializeField] private float _visionRange = 18f;
-
-        private float _velocity = 0f;
-        private float _accelerationSign = 1f;
-        private float _v0stop = 0f;
         [SerializeField] private RobotDirection _direction = RobotDirection.Right;
+
+        private float _velocity;
+        private float _accelerationSign = 1f;
         private bool _slowingDown;
         private bool _changingDirectionInProgress;
         private bool _droppingOffAnimationInProgress;
         private bool _pickUpAnimationInProgress;
+        
         private static readonly int Speed = Animator.StringToHash("Speed");
         private static readonly int Carrying = Animator.StringToHash("Carrying");
 

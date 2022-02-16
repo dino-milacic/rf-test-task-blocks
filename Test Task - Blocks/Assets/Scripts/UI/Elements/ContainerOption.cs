@@ -13,20 +13,6 @@ namespace RFTestTaskBlocks.UI
         [SerializeField] private TMP_Dropdown _orientationDropdown;
         [SerializeField] private Image _color;
 
-        // public float Position => _positionSlider.value;
-        //
-        // public ContainerController.ContainerOrientation Orientation
-        // {
-        //     get
-        //     {
-        //         ContainerController.ContainerOrientation[] directions =
-        //             (ContainerController.ContainerOrientation[]) Enum.GetValues(
-        //                 typeof(ContainerController.ContainerOrientation));
-        //     
-        //         return directions[_orientationDropdown.value];
-        //     }
-        // }
-
         private ContainerConfiguration _value = new ContainerConfiguration();
         public ContainerConfiguration Value => _value;
 
@@ -41,12 +27,9 @@ namespace RFTestTaskBlocks.UI
 
         private void Awake()
         {
-            _positionSlider.onValueChanged.RemoveListener(HandlePositionChanged);
+            _orientationDropdown.onValueChanged.AddListener(HandleOrientationChanged);
             _positionSlider.onValueChanged.AddListener(HandlePositionChanged);
             SetPositionLabel(0f);
-            
-            _orientationDropdown.onValueChanged.RemoveListener(HandleOrientationChanged);
-            _orientationDropdown.onValueChanged.AddListener(HandleOrientationChanged);
         }
 
         public void Initialize(BlockColor color, float position)

@@ -23,7 +23,6 @@ namespace RFTestTaskBlocks.UI
             set => _onValueChanged = value;
         }
 
-
         private void Awake()
         {
             if (_group != null) _groupTransform = _group.transform;

@@ -22,16 +22,9 @@ namespace RFTestTaskBlocks.UI
             _sceneConfig = new SceneConfiguration();
             _containerOptions = new Dictionary<BlockColor, ContainerOption>();
             
-            _sceneSize.OnValueChanged.RemoveListener(SceneSizeChanged);
             _sceneSize.OnValueChanged.AddListener(SceneSizeChanged);
-            
-            _numberOfRobots.OnValueChanged.RemoveListener(NumberOfRobotsChanged);
             _numberOfRobots.OnValueChanged.AddListener(NumberOfRobotsChanged);
-            
-            _numberOfBlocks.OnValueChanged.RemoveListener(NumberOfBlocksChanged);
             _numberOfBlocks.OnValueChanged.AddListener(NumberOfBlocksChanged);
-            
-            _allowedColors.OnValueChanged.RemoveListener(AllowedColorsChanged);
             _allowedColors.OnValueChanged.AddListener(AllowedColorsChanged);
             
             BlockColor[] colors = (BlockColor[]) Enum.GetValues(typeof(BlockColor));

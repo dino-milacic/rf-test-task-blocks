@@ -11,6 +11,7 @@ namespace RFTestTaskBlocks.UI
         private void Awake()
         {
             Services.Register(this);
+            _canvas.worldCamera = _camera;
         }
 
         private void OnDestroy()
@@ -33,29 +34,4 @@ namespace RFTestTaskBlocks.UI
 
         private string GetFullMenuAddress<T>() => $"UI.{typeof(T).Name}";
     }
-
-    public interface IUIManager : IGameService
-    {
-        void ShowMenu<T>() where T : Object, IUIPanel;
-    }
-
-    public interface IUIPanel
-    {
-        void OnOpen();
-        void Close();
-    }
-
-    public abstract class BaseUIPanel : MonoBehaviour, IUIPanel
-    {
-        public virtual void OnOpen() {}
-
-        public void Close()
-        {
-            OnClose();
-            Destroy(gameObject);
-        }
-        
-        protected virtual void OnClose() {}
-    }
-    
 }
